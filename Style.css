@@ -1,0 +1,91 @@
+/* Configurações gerais da página */
+body {
+    background-color: #1a1b26; /* Cor de fundo escura */
+    color: #a9b1d6;            /* Cor do texto principal */
+    font-size: 16px;           /* Tamanho do texto */
+    text-align: center;        /* Alinhamento centralizado */
+    margin: 0;                 /* Espaçamento externo */
+    padding: 20px;             /* Espaçamento interno */
+    font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho do Cartaz */
+header {
+    background-color: #24283b; /* Segunda cor para combinar */
+    padding: 20px;             /* Espaçamento interno */
+    margin-bottom: 20px;       /* Espaçamento externo inferior */
+    border-radius: 12px;       /* Cantos arredondados */
+    border: 2px solid #7aa2f7;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #7aa2f7;
+    margin: 0;
+}
+
+/* Organização dos cards centrais */
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #24283b; /* Segunda cor nos cards */
+    padding: 20px;             /* Espaçamento interno */
+    margin: 10px;              /* Espaçamento externo */
+    border-radius: 10px;       /* Cantos arredondados */
+    max-width: 400px;
+    flex: 1 1 300px;
+}
+
+/* Estilo da imagem */
+.imagem-gato {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;       /* Cantos arredondados na imagem */
+    margin-top: 10px;
+}
+
+/* Estilo da Tabela */
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #414868;
+}
+
+th {
+    background-color: #414868;
+    color: #7aa2f7;
+}
+
+/* Botão interativo com link */
+.botao {
+    display: inline-block;
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    padding: 10px 20px;       /* Espaçamento interno */
+    margin-top: 15px;          /* Espaçamento externo */
+    border-radius: 20px;       /* Cantos arredondados */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efeito :hover solicitado na atividade */
+.botao:hover {
+    background-color: #bb9af7;
+    transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+    margin-top: 30px;
+    color: #565f89;
+}
