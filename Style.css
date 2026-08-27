@@ -1,11 +1,11 @@
 /* Configurações gerais da página */
 body {
-    background-color: #4bd69c; /* Cor de fundo escura */
-    color: #a9b1d6;            /* Cor do texto principal */
-    font-size: 16px;           /* Tamanho do texto */
-    text-align: center;        /* Alinhamento centralizado */
-    margin: 0;                 /* Espaçamento externo */
-    padding: 20px;             /* Espaçamento interno */
+    background-color: #4bd69c; 
+    color: #a9b1d6;            
+    font-size: 20px;          
+    text-align: center;      
+    margin: 0;                 
+    padding: 20px;             
     font-family: Arial, sans-serif;
 }
 
