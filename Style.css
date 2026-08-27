@@ -1,133 +1,212 @@
-
-body {
-    background-color: #f4efe6; 
-    color: #3e2723;            
-    font-size: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Reset Global */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
-
-.header-principal {
-    background-color: #5d4037; /* Marrom escuro aconchegante */
-    color: #ffffff;
-    padding: 30px 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+body {
+    background-color: #f8f9fa; /* Fundo cinza bem claro profissional */
+    color: #333333;            /* Texto escuro de fácil leitura */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
-.header-principal h1 {
-    font-size: 36px;
-    margin: 0 0 10px 0;
-    color: #d7ccc8;
+/* Header em Estilo Navegação */
+.header-blog {
+    background-color: #ffffff;
+    border-bottom: 2px solid #eaeff4;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.autores {
-    font-size: 18px;
-    margin: 0;
-}
-
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    max-width: 1100px;
+.header-container {
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.card {
-    background-color: #ffffff; 
-    padding: 25px;
-    margin: 10px;
-    border-radius: 16px;       
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
-    flex: 1 1 450px;
+.logo-blog {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2b7a78; /* Verde/Azul escuro profissional */
+}
+
+.dupla-tag {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Container Central de Leitura */
+.artigo-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Cabeçalho do Artigo */
+.artigo-header {
+    margin-bottom: 25px;
     text-align: left;
 }
 
-.card h2 {
-    color: #d84315;            
-    margin-top: 0;
-    border-bottom: 2px solid #ffccbc;
-    padding-bottom: 8px;
+.categoria-tag {
+    background-color: #e6f4f1;
+    color: #2b7a78;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
 }
 
+.artigo-header h1 {
+    font-size: 32px;
+    color: #17252a;
+    margin: 15px 0 10px 0;
+    line-height: 1.2;
+}
 
-.imagem-destaque {
+.meta-info {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Banner de Imagem */
+.banner-box {
+    margin: 25px 0;
+}
+
+.imagem-artigo {
     width: 100%;
-    height: auto;
-    border-radius: 14px;
-    margin-top: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
+/* Texto */
+.secao-texto {
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.secao-texto h2, .secao-tabela h2 {
+    font-size: 22px;
+    color: #17252a;
+    margin: 20px 0 15px 0;
+}
+
+.secao-texto p {
+    margin-bottom: 15px;
+    color: #4a4a4a;
+}
+
+/* Tabela Estilizada como Card */
+.tabela-wrapper {
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid #eef2f5;
+    border-radius: 8px;
+}
 
 table {
     width: 100%;
-    margin: 20px 0;
     border-collapse: collapse;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #efebe9;
     text-align: left;
 }
 
 th {
-    background-color: #d7ccc8;
-    color: #3e2723;
+    background-color: #3aaf9f; /* Cor de destaque */
+    color: #ffffff;
+    padding: 14px;
+    font-weight: 600;
 }
 
-/* Botões Interativos */
-.area-botoes {
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eef2f5;
+    color: #4a4a4a;
+}
+
+tr:nth-child(even) {
+    background-color: #fcfdfe;
+}
+
+/* Bloco de CTA para o Cartaz */
+.cta-cartaz {
+    background-color: #e6f4f1;
+    border-left: 5px solid #2b7a78;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.cta-conteudo h3 {
+    color: #17252a;
+    margin-bottom: 8px;
+}
+
+.cta-conteudo p {
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.botoes-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.botao {
-    display: block;
-    padding: 12px 20px;
+/* Estilo dos Botões e Efeito Hover */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
     border-radius: 25px;
     text-decoration: none;
-    font-weight: bold;
-    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
     transition: all 0.3s ease;
 }
 
-
-.botao-cartaz {
-    background-color: #d84315; /* Cor Terracota */
+.btn-principal {
+    background-color: #2b7a78;
     color: #ffffff;
 }
 
-.botao-cartaz:hover {
-    background-color: #bf360c;
-    transform: translateY(-2px); /* Efeito suave de subida */
-}
-
-
-.botao-secundario {
-    background-color: #8d6e63;
-    color: #ffffff;
-}
-
-.botao-secundario:hover {
-    background-color: #6d4c41;
+/* Efeito :hover exigido */
+.btn-principal:hover {
+    background-color: #17252a;
     transform: translateY(-2px);
 }
 
+.btn-secundario {
+    background-color: #ffffff;
+    color: #2b7a78;
+    border: 1px solid #2b7a78;
+}
 
-footer {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #3e2723;
-    color: #d7ccc8;
+/* Efeito :hover exigido */
+.btn-secundario:hover {
+    background-color: #2b7a78;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Rodapé */
+.footer-blog {
+    text-align: center;
+    padding: 25px 0;
+    color: #888;
+    font-size: 13px;
 }
