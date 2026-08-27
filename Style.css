@@ -45,7 +45,7 @@ header h1 {
 .imagem-gato {
     width: 100%;
     height: auto;
-    border-radius: 8px;       /* Cantos arredondados na imagem */
+    border-radius: 20px;       /* Cantos arredondados na imagem */
     margin-top: 10px;
 }
 
