@@ -1,92 +1,133 @@
-
+/* Palette Inspirada em Gatos: Tons Terrosos e Cremes */
 body {
-    background-color: #4bd69c; 
-    color: #a9b1d6;            
-    font-size: 20px;          
-    text-align: center;      
-    margin: 0;                 
-    padding: 20px;             
-    font-family: Arial, sans-serif;
+    background-color: #f4efe6; /* Cor de fundo creme/areia */
+    color: #3e2723;            /* Cor do texto marrom escuro */
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-
-header {
-    background-color: #4bd69c; 
-    padding: 20px;             
-    margin-bottom: 20px;      
-    border-radius: 12px;     
-    border: 2px solid #7aa2f7;
+/* Header elegante */
+.header-principal {
+    background-color: #5d4037; /* Marrom escuro aconchegante */
+    color: #ffffff;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-header h1 {
-    font-size: 32px;
-    color: #7aa2f7;
+.header-principal h1 {
+    font-size: 36px;
+    margin: 0 0 10px 0;
+    color: #d7ccc8;
+}
+
+.autores {
+    font-size: 18px;
     margin: 0;
 }
 
-
-.conteudo {
+/* Layout dos cards profissionais */
+.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .card {
-    background-color: #24283b; 
-    padding: 20px;             
-    margin: 10px;              
-    border-radius: 10px;       
-    max-width: 400px;
-    flex: 1 1 300px;
+    background-color: #ffffff; /* Fundo branco para destaque */
+    padding: 25px;
+    margin: 10px;
+    border-radius: 16px;       /* Cantos arredondados suavizados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+    flex: 1 1 450px;
+    text-align: left;
 }
 
+.card h2 {
+    color: #d84315;            /* Terracota para destaques */
+    margin-top: 0;
+    border-bottom: 2px solid #ffccbc;
+    padding-bottom: 8px;
+}
 
-.imagem-gato {
+/* Imagem Grande Arredondada */
+.imagem-destaque {
     width: 100%;
-    max-width: 500px;
     height: auto;
-    border-radius: 20px;       
+    border-radius: 14px;
     margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-
+/* Tabela Estilizada */
 table {
     width: 100%;
-    margin-top: 15px;
+    margin: 20px 0;
     border-collapse: collapse;
 }
 
 th, td {
-    padding: 8px;
-    border: 1px solid #414868;
+    padding: 12px;
+    border-bottom: 1px solid #efebe9;
+    text-align: left;
 }
 
 th {
-    background-color: #414868;
-    color: #7aa2f7;
+    background-color: #d7ccc8;
+    color: #3e2723;
 }
 
+/* Botões Interativos */
+.area-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
 
 .botao {
-    display: inline-block;
-    background-color: #7aa2f7;
-    color: #1a1b26;
-    padding: 10px 20px;       
-    margin-top: 15px;         
-    border-radius: 20px;       
+    display: block;
+    padding: 12px 20px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-
-.botao:hover {
-    background-color: #bb9af7;
-    transform: scale(1.05);
+/* Botão Principal do Cartaz */
+.botao-cartaz {
+    background-color: #d84315; /* Cor Terracota */
+    color: #ffffff;
 }
 
+.botao-cartaz:hover {
+    background-color: #bf360c;
+    transform: translateY(-2px); /* Efeito suave de subida */
+}
 
+/* Botão Secundário */
+.botao-secundario {
+    background-color: #8d6e63;
+    color: #ffffff;
+}
+
+.botao-secundario:hover {
+    background-color: #6d4c41;
+    transform: translateY(-2px);
+}
+
+/* Rodapé */
 footer {
-    margin-top: 30px;
-    color: #565f89;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #3e2723;
+    color: #d7ccc8;
 }
