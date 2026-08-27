@@ -1,7 +1,7 @@
-/* Palette Inspirada em Gatos: Tons Terrosos e Cremes */
+
 body {
-    background-color: #f4efe6; /* Cor de fundo creme/areia */
-    color: #3e2723;            /* Cor do texto marrom escuro */
+    background-color: #f4efe6; 
+    color: #3e2723;            
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -9,7 +9,7 @@ body {
     text-align: center;
 }
 
-/* Header elegante */
+
 .header-principal {
     background-color: #5d4037; /* Marrom escuro aconchegante */
     color: #ffffff;
@@ -29,7 +29,7 @@ body {
     margin: 0;
 }
 
-/* Layout dos cards profissionais */
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -57,7 +57,7 @@ body {
     padding-bottom: 8px;
 }
 
-/* Imagem Grande Arredondada */
+
 .imagem-destaque {
     width: 100%;
     height: auto;
@@ -66,7 +66,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Tabela Estilizada */
+
 table {
     width: 100%;
     margin: 20px 0;
@@ -102,7 +102,7 @@ th {
     transition: all 0.3s ease;
 }
 
-/* Botão Principal do Cartaz */
+
 .botao-cartaz {
     background-color: #d84315; /* Cor Terracota */
     color: #ffffff;
@@ -113,7 +113,7 @@ th {
     transform: translateY(-2px); /* Efeito suave de subida */
 }
 
-/* Botão Secundário */
+
 .botao-secundario {
     background-color: #8d6e63;
     color: #ffffff;
@@ -124,7 +124,7 @@ th {
     transform: translateY(-2px);
 }
 
-/* Rodapé */
+
 footer {
     margin-top: 40px;
     padding: 20px;
