@@ -41,17 +41,17 @@ body {
 }
 
 .card {
-    background-color: #ffffff; /* Fundo branco para destaque */
+    background-color: #ffffff; 
     padding: 25px;
     margin: 10px;
-    border-radius: 16px;       /* Cantos arredondados suavizados */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+    border-radius: 16px;       
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
     flex: 1 1 450px;
     text-align: left;
 }
 
 .card h2 {
-    color: #d84315;            /* Terracota para destaques */
+    color: #d84315;            
     margin-top: 0;
     border-bottom: 2px solid #ffccbc;
     padding-bottom: 8px;
