@@ -1,522 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLIVIA RODRIGO — Discografia & YouTube Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-dark: #090314;
-            --purple-main: #7c3aed;
-            --lilac-glow: #c4b5fd;
-            --pink-punk: #f43f5e;
-            --yt-red: #ff0033;
-            --glass: rgba(28, 12, 56, 0.7);
-            --border: rgba(196, 181, 253, 0.25);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.3) 0%, transparent 45%),
-                radial-gradient(circle at 85% 85%, rgba(244, 63, 94, 0.22) 0%, transparent 45%);
-            color: #fff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            padding-bottom: 60px;
-        }
-
-        header {
-            text-align: center;
-            padding: 45px 20px 25px;
-        }
-
-        .tag {
-            font-family: 'Permanent Marker', cursive;
-            background: var(--pink-punk);
-            padding: 5px 15px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            display: inline-block;
-            transform: rotate(-3deg);
-            margin-bottom: 12px;
-            box-shadow: 3px 3px 0 #000;
-        }
-
-        header h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            text-transform: uppercase;
-            background: linear-gradient(180deg, #fff, #c4b5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            color: #cbd5e1;
-            margin-top: 8px;
-            font-size: 1.05rem;
-        }
-
-        /* Seletor de Álbuns */
-        .album-selector {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 25px auto 35px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            background: var(--glass);
-            border: 2px solid var(--border);
-            color: #e2e8f0;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-family: 'Syne', sans-serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tab-btn:hover {
-            border-color: var(--lilac-glow);
-            transform: translateY(-2px);
-        }
-
-        .tab-btn.active {
-            background: var(--purple-main);
-            border-color: #fff;
-            color: #fff;
-            box-shadow: 0 0 25px rgba(124, 58, 237, 0.75);
-        }
-
-        /* Container Principal */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .album-showcase {
-            display: none;
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.35s ease;
-        }
-
-        .album-showcase.active {
-            display: grid;
-            grid-template-columns: 330px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Coluna da Esquerda: Capa, Stats e Botão Playlist YouTube */
-        .album-left {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .album-cover {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 16px;
-            object-fit: cover;
-            border: 2px solid var(--border);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            background-color: #1e0b3b;
-        }
-
-        .album-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.35);
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-        }
-
-        .album-stats div span {
-            display: block;
-            color: var(--lilac-glow);
-            font-weight: 800;
-            font-size: 0.95rem;
-        }
-
-        .btn-yt-album {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--yt-red);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            padding: 14px 20px;
-            border-radius: 12px;
-            transition: transform 0.2s, filter 0.2s;
-            box-shadow: 0 6px 20px rgba(255, 0, 51, 0.4);
-        }
-
-        .btn-yt-album:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-        }
-
-        /* Coluna da Direita: Informações e Tracklist */
-        .album-right h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
-            line-height: 1.05;
-            margin-bottom: 8px;
-        }
-
-        .album-subtitle {
-            color: var(--pink-punk);
-            font-weight: 700;
-            margin-bottom: 14px;
-            display: block;
-        }
-
-        .album-desc {
-            color: #cbd5e1;
-            margin-bottom: 24px;
-            font-size: 0.96rem;
-            line-height: 1.5;
-        }
-
-        .tracklist-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: var(--lilac-glow);
-        }
-
-        .tracklist {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            max-height: 410px;
-            overflow-y: auto;
-            padding-right: 6px;
-        }
-
-        .tracklist::-webkit-scrollbar {
-            width: 6px;
-        }
-        .tracklist::-webkit-scrollbar-thumb {
-            background: var(--purple-main);
-            border-radius: 10px;
-        }
-
-        .track {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 14px;
-            border-radius: 10px;
-            transition: background 0.2s, transform 0.2s;
-            gap: 10px;
-        }
-
-        .track:hover {
-            background: rgba(124, 58, 237, 0.35);
-            transform: translateX(4px);
-        }
-
-        .track-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .track-number {
-            color: var(--pink-punk);
-            font-weight: 800;
-            width: 22px;
-        }
-
-        .track-badge {
-            font-size: 0.68rem;
-            background: var(--purple-main);
-            padding: 2px 8px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .track-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        .track-time {
-            color: #94a3b8;
-            font-size: 0.85rem;
-        }
-
-        .yt-link {
-            background: rgba(255, 0, 51, 0.18);
-            border: 1px solid rgba(255, 0, 51, 0.5);
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.2s;
-        }
-
-        .yt-link:hover {
-            background: var(--yt-red);
-            border-color: var(--yt-red);
-            transform: scale(1.05);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 850px) {
-            .album-showcase.active {
-                grid-template-columns: 1fr;
-            }
-            .album-cover {
-                max-width: 280px;
-                margin: 0 auto;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CatDex • Baralho Felino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-paws"></div>
 
-    <header>
-        <div class="tag">★ DISCOGRAFIA COMPLETA ★</div>
-        <h1>Olivia Rodrigo</h1>
-        <p>Clique nos botões para navegar pelos álbuns e ouvir qualquer faixa no YouTube</p>
-    </header>
-
-    <!-- Botões de Navegação entre TODOS os Álbuns -->
-    <div class="album-selector">
-        <button type="button" class="tab-btn active" data-target="sour">💜 SOUR (2021)</button>
-        <button type="button" class="tab-btn" data-target="guts">🖤 GUTS (spilled) (2023/24)</button>
-        <button type="button" class="tab-btn" data-target="hsmtmts">🎭 HSMTMTS (2020–2022)</button>
-        <button type="button" class="tab-btn" data-target="singles">🎬 Singles & Trilhas</button>
+  <header class="top-bar">
+    <div class="logo-area">
+      <span class="logo-icon">🐾</span>
+      <h1>CatDex</h1>
+      <span class="badge-beta">Baralho Felino</span>
     </div>
+    <p class="subtitle">Clique nas cartas para virar, ler curiosidades e fazer carinho!</p>
 
-    <div class="container">
+    <div class="actions-bar">
+      <div class="filters" id="filter-buttons">
+        <button class="filter-btn active" data-filter="todos">✨ Todos</button>
+        <button class="filter-btn" data-filter="dorminhoco">💤 Dorminhocos</button>
+        <button class="filter-btn" data-filter="bagunceiro">⚡ Bagunceiros</button>
+        <button class="filter-btn" data-filter="carinhoso">💖 Carinhosos</button>
+      </div>
 
-        <!-- 1. SOUR -->
-        <div id="sour" class="album-showcase active">
-            <div class="album-left">
-                <img class="album-cover" src="https://upload.wikimedia.org/wikipedia/en/b/b2/Olivia_Rodrigo_-_SOUR.png" alt="Capa SOUR">
-                <div class="album-stats">
-                    <div>Lançamento<span>21 Mai 2021</span></div>
-                    <div>Faixas<span>11 músicas</span></div>
-                    <div>Gênero<span>Pop / Pop-Punk</span></div>
-                    <div>Grammys<span>3 Prêmios</span></div>
-                </div>
-                <a class="btn-yt-album" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+SOUR+full+album+official" target="_blank" rel="noopener">
-                    ▶ Ouvir Álbum no YouTube
-                </a>
-            </div>
-
-            <div class="album-right">
-                <h2>SOUR</h2>
-                <span class="album-subtitle">1º Álbum de Estúdio • Geffen Records</span>
-                <p class="album-desc">
-                    O fenômeno mundial de estreia de Olivia Rodrigo. Misturando baladas confessionais ao piano com explosões de pop-punk anos 90, <strong>SOUR</strong> quebrou recordes globais e rendeu três prêmios Grammy.
-                </p>
-                <h3 class="tracklist-title">Faixas (Clique para ouvir no YouTube)</h3>
-                <ul class="tracklist">
-                    <li class="track"><div class="track-info"><span class="track-number">01</span> brutal <span class="track-badge">Single</span></div><div class="track-actions"><span class="track-time">2:23</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+brutal+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">02</span> traitor <span class="track-badge">Single</span></div><div class="track-actions"><span class="track-time">3:49</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+traitor+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">03</span> drivers license <span class="track-badge">Hit #1</span></div><div class="track-actions"><span class="track-time">4:02</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+drivers+license+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">04</span> 1 step forward, 3 steps back</div><div class="track-actions"><span class="track-time">2:43</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+1+step+forward+3+steps+back+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">05</span> deja vu <span class="track-badge">Single</span></div><div class="track-actions"><span class="track-time">3:35</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+deja+vu+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">06</span> good 4 u <span class="track-badge">Hit #1</span></div><div class="track-actions"><span class="track-time">2:58</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+good+4+u+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">07</span> enough for you</div><div class="track-actions"><span class="track-time">3:22</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+enough+for+you+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">08</span> happier</div><div class="track-actions"><span class="track-time">2:55</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+happier+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">09</span> jealousy, jealousy</div><div class="track-actions"><span class="track-time">2:53</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+jealousy+jealousy+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">10</span> favorite crime</div><div class="track-actions"><span class="track-time">2:32</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+favorite+crime+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">11</span> hope ur ok</div><div class="track-actions"><span class="track-time">3:29</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+hope+ur+ok+official+audio" target="_blank">▶ YouTube</a></div></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 2. GUTS (spilled) -->
-        <div id="guts" class="album-showcase">
-            <div class="album-left">
-                <img class="album-cover" src="https://upload.wikimedia.org/wikipedia/en/0/03/Olivia_Rodrigo_-_Guts.png" alt="Capa GUTS">
-                <div class="album-stats">
-                    <div>Lançamento<span>08 Set 2023</span></div>
-                    <div>Deluxe<span>22 Mar 2024</span></div>
-                    <div>Faixas<span>17 músicas</span></div>
-                    <div>Gênero<span>Pop-Rock / Garage</span></div>
-                </div>
-                <a class="btn-yt-album" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+GUTS+spilled+full+album" target="_blank" rel="noopener">
-                    ▶ Ouvir Álbum no YouTube
-                </a>
-            </div>
-
-            <div class="album-right">
-                <h2>GUTS (spilled)</h2>
-                <span class="album-subtitle">2º Álbum de Estúdio + Edição Deluxe • Geffen Records</span>
-                <p class="album-desc">
-                    Mais barulhento, sarcástico e visceral. Inclui as 12 faixas originais mais as 5 faixas bônus da versão <strong>spilled</strong> (como <em>"obsessed"</em> e <em>"so american"</em>).
-                </p>
-                <h3 class="tracklist-title">Faixas Completas (Clique para ouvir no YouTube)</h3>
-                <ul class="tracklist">
-                    <li class="track"><div class="track-info"><span class="track-number">01</span> all-american bitch</div><div class="track-actions"><span class="track-time">2:45</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+all+american+bitch+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">02</span> bad idea right? <span class="track-badge">Single</span></div><div class="track-actions"><span class="track-time">3:04</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+bad+idea+right+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">03</span> vampire <span class="track-badge">Hit #1</span></div><div class="track-actions"><span class="track-time">3:39</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+vampire+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">04</span> lacy</div><div class="track-actions"><span class="track-time">2:57</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+lacy+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">05</span> ballad of a homeschooled girl</div><div class="track-actions"><span class="track-time">3:23</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+ballad+of+a+homeschooled+girl+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">06</span> making the bed</div><div class="track-actions"><span class="track-time">3:18</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+making+the+bed+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">07</span> logical</div><div class="track-actions"><span class="track-time">3:51</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+logical+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">08</span> get him back! <span class="track-badge">Single</span></div><div class="track-actions"><span class="track-time">3:31</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+get+him+back+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">09</span> love is embarrassing</div><div class="track-actions"><span class="track-time">2:34</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+love+is+embarrassing+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">10</span> the grudge</div><div class="track-actions"><span class="track-time">3:09</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+the+grudge+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">11</span> pretty isn't pretty</div><div class="track-actions"><span class="track-time">3:19</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+pretty+isnt+pretty+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">12</span> teenage dream</div><div class="track-actions"><span class="track-time">3:42</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+teenage+dream+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">13</span> obsessed <span class="track-badge">Deluxe</span></div><div class="track-actions"><span class="track-time">2:50</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+obsessed+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">14</span> girl i've always been <span class="track-badge">Deluxe</span></div><div class="track-actions"><span class="track-time">2:01</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+girl+ive+always+been+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">15</span> scared of my guitar <span class="track-badge">Deluxe</span></div><div class="track-actions"><span class="track-time">4:23</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+scared+of+my+guitar+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">16</span> stranger <span class="track-badge">Deluxe</span></div><div class="track-actions"><span class="track-time">3:12</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+stranger+official+audio" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">17</span> so american <span class="track-badge">Deluxe</span></div><div class="track-actions"><span class="track-time">2:49</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+so+american+official+audio" target="_blank">▶ YouTube</a></div></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 3. HSMTMTS (Trilhas da Série) -->
-        <div id="hsmtmts" class="album-showcase">
-            <div class="album-left">
-                <img class="album-cover" src="https://upload.wikimedia.org/wikipedia/en/6/63/High_School_Musical_The_Musical_The_Series_Soundtrack.jpg" alt="Capa HSMTMTS">
-                <div class="album-stats">
-                    <div>Período<span>2020 – 2022</span></div>
-                    <div>Personagem<span>Nini Salazar-Roberts</span></div>
-                    <div>Temporadas<span>1, 2 e 3</span></div>
-                    <div>Gravadora<span>Walt Disney</span></div>
-                </div>
-                <a class="btn-yt-album" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+High+School+Musical+songs+playlist" target="_blank" rel="noopener">
-                    ▶ Ouvir Playlist no YouTube
-                </a>
-            </div>
-
-            <div class="album-right">
-                <h2>HSMTMTS: As Músicas</h2>
-                <span class="album-subtitle">Trilhas Sonoras Originais • Walt Disney Records</span>
-                <p class="album-desc">
-                    Antes de dominar as paradas com <em>SOUR</em>, Olivia mostrou seu talento como cantora e compositora interpretando Nini em <strong>High School Musical: The Musical: The Series</strong>, escrevendo hits como <em>"All I Want"</em> sozinha.
-                </p>
-                <h3 class="tracklist-title">Principais Músicas na Série (Clique para ouvir)</h3>
-                <ul class="tracklist">
-                    <li class="track"><div class="track-info"><span class="track-number">01</span> All I Want <span class="track-badge">Composição Solo</span></div><div class="track-actions"><span class="track-time">2:57</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+All+I+Want+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">02</span> Just for a Moment (com Joshua Bassett)</div><div class="track-actions"><span class="track-time">3:17</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Joshua+Bassett+Just+for+a+Moment" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">03</span> Wondering (com Julia Lester)</div><div class="track-actions"><span class="track-time">3:44</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Julia+Lester+Wondering" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">04</span> Out of the Old</div><div class="track-actions"><span class="track-time">2:48</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Out+of+the+Old" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">05</span> The Rose Song <span class="track-badge">Composição Solo</span></div><div class="track-actions"><span class="track-time">2:54</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+The+Rose+Song+official" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">06</span> Granted</div><div class="track-actions"><span class="track-time">2:34</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Granted+HSMTMTS" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">07</span> You Never Know</div><div class="track-actions"><span class="track-time">3:16</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+You+Never+Know+HSMTMTS" target="_blank">▶ YouTube</a></div></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 4. Singles Avulsos, Trilhas de Cinema e Ao Vivo -->
-        <div id="singles" class="album-showcase">
-            <div class="album-left">
-                <img class="album-cover" src="https://upload.wikimedia.org/wikipedia/en/4/45/Olivia_Rodrigo_-_Can%27t_Catch_Me_Now.png" alt="Capa Can't Catch Me Now">
-                <div class="album-stats">
-                    <div>Destaque<span>Jogos Vorazes</span></div>
-                    <div>Formato<span>Singles & EPs</span></div>
-                    <div>Ao Vivo<span>Tiny Desk / SOUR Prom</span></div>
-                    <div>Status<span>Completos</span></div>
-                </div>
-                <a class="btn-yt-album" href="https://www.youtube.com/@OliviaRodrigo/releases" target="_blank" rel="noopener">
-                    ▶ Canal Oficial no YouTube
-                </a>
-            </div>
-
-            <div class="album-right">
-                <h2>Singles, Trilhas & Especiais</h2>
-                <span class="album-subtitle">Lançamentos fora dos álbuns principais</span>
-                <p class="album-desc">
-                    Músicas icônicas gravadas para filmes, especiais ao vivo e apresentações acústicas que todo fã precisa ouvir.
-                </p>
-                <h3 class="tracklist-title">Faixas e Performances (Clique para ouvir)</h3>
-                <ul class="tracklist">
-                    <li class="track"><div class="track-info"><span class="track-number">01</span> Can't Catch Me Now <span class="track-badge">Jogos Vorazes</span></div><div class="track-actions"><span class="track-time">3:25</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Cant+Catch+Me+Now+official+video" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">02</span> Stick Season (BBC Radio 1 Cover) <span class="track-badge">Cover</span></div><div class="track-actions"><span class="track-time">3:02</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Stick+Season+Live+Lounge" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">03</span> NPR Tiny Desk Concert <span class="track-badge">Ao Vivo</span></div><div class="track-actions"><span class="track-time">18:15</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+Tiny+Desk+Concert" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">04</span> SOUR Prom (Concert Film) <span class="track-badge">Show</span></div><div class="track-actions"><span class="track-time">26:40</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+SOUR+Prom+full" target="_blank">▶ YouTube</a></div></li>
-                    <li class="track"><div class="track-info"><span class="track-number">05</span> River (Cover de Joni Mitchell)</div><div class="track-actions"><span class="track-time">3:34</span><a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+River+official" target="_blank">▶ YouTube</a></div></li>
-                </ul>
-            </div>
-        </div>
-
+      <div class="special-actions">
+        <button id="btn-sorteio" class="btn-magic">🔮 Carta do Dia</button>
+        <button id="btn-abrir-criador" class="btn-create">➕ Criar Carta</button>
+      </div>
     </div>
+  </header>
 
-    <footer>
-        <p>Discografia Olivia Rodrigo • Hospedado no GitHub Pages</p>
-    </footer>
+  <main class="container">
+    <section id="cards-grid" class="cards-grid">
+      <!-- As cartas serão inseridas aqui pelo JavaScript -->
+    </section>
+  </main>
 
-    <script>
-        // Seleciona todos os botões e todas as vitrines
-        const buttons = document.querySelectorAll('.tab-btn');
-        const showcases = document.querySelectorAll('.album-showcase');
+  <!-- Modal: Carta do Dia -->
+  <div id="modal-sorteio" class="modal hidden">
+    <div class="modal-content modal-lucky">
+      <button class="close-modal" data-close="modal-sorteio">✕</button>
+      <span class="lucky-tag">✨ Sua energia felina de hoje é...</span>
+      <div id="lucky-card-container"></div>
+      <p id="lucky-message" class="lucky-message"></p>
+    </div>
+  </div>
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetId = button.getAttribute('data-target');
+  <!-- Modal: Criar Própria Carta -->
+  <div id="modal-criador" class="modal hidden">
+    <div class="modal-content">
+      <button class="close-modal" data-close="modal-criador">✕</button>
+      <h2>🐾 Criar Minha Carta</h2>
+      <p class="modal-desc">Adicione seu gatinho (ou um gato inventado) ao baralho!</p>
 
-                // Remove a classe 'active' de todos os botões e vitrines
-                buttons.forEach(btn => btn.classList.remove('active'));
-                showcases.forEach(box => box.classList.remove('active'));
+      <form id="form-criar-carta" class="create-form">
+        <label>
+          Nome do Gato:
+          <input type="text" id="input-nome" placeholder="Ex: Mingau, Paçoca..." required maxlength="22" />
+        </label>
 
-                // Adiciona 'active' apenas no botão clicado e no álbum correspondente
-                button.classList.add('active');
-                document.getElementById(targetId).classList.add('active');
-            });
-        });
-    </script>
+        <label>
+          Título / Classe:
+          <input type="text" id="input-titulo" placeholder="Ex: O Fiscal de Sacola" required maxlength="28" />
+        </label>
 
+        <div class="row-inputs">
+          <label>
+            Personalidade:
+            <select id="input-categoria">
+              <option value="dorminhoco">💤 Dorminhoco</option>
+              <option value="bagunceiro">⚡ Bagunceiro</option>
+              <option value="carinhoso">💖 Carinhoso</option>
+            </select>
+          </label>
+
+          <label>
+            Raridade:
+            <select id="input-raridade">
+              <option value="Comum">Comum</option>
+              <option value="Raro">Raro</option>
+              <option value="Lendário">Lendário ✨</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Foto do Gato (opcional - se deixar vazio, pegamos uma foto fofa):
+          <input type="file" id="input-foto" accept="image/*" />
+        </label>
+
+        <label>
+          Curiosidade ou Mania:
+          <textarea id="input-curiosidade" rows="2" placeholder="Ex: Amassa pãozinho toda vez que vê um cobertor fofinho." required maxlength="140"></textarea>
+        </label>
+
+        <div class="sliders-group">
+          <label>Fome: <span id="val-fome">80</span>%
+            <input type="range" id="input-fome" min="10" max="100" value="80" />
+          </label>
+          <label>Preguiça: <span id="val-preguica">90</span>%
+            <input type="range" id="input-preguica" min="10" max="100" value="90" />
+          </label>
+          <label>Caos: <span id="val-caos">50</span>%
+            <input type="range" id="input-caos" min="10" max="100" value="50" />
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit">✨ Adicionar ao Baralho</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Feito com 🐾 e carinho • Projeto CatDex
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
