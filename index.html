@@ -1,125 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CatDex • Baralho Felino</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLIVIA RODRIGO — Discografia & YouTube Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-paws"></div>
 
-  <header class="top-bar">
-    <div class="logo-area">
-      <span class="logo-icon">🐾</span>
-      <h1>CatDex</h1>
-      <span class="badge-beta">Baralho Felino</span>
+    <header>
+        <div class="tag">★ DISCOGRAFIA COMPLETA ★</div>
+        <h1>Olivia Rodrigo</h1>
+        <p>Clique nos botões para navegar pelos álbuns e ouvir qualquer faixa no YouTube</p>
+    </header>
+
+    <div class="album-selector" id="tabs"></div>
+
+    <div class="container">
+        <div class="showcase" id="showcase"></div>
     </div>
-    <p class="subtitle">Clique nas cartas para virar, ler curiosidades e fazer carinho!</p>
 
-    <div class="actions-bar">
-      <div class="filters" id="filter-buttons">
-        <button class="filter-btn active" data-filter="todos">✨ Todos</button>
-        <button class="filter-btn" data-filter="dorminhoco">💤 Dorminhocos</button>
-        <button class="filter-btn" data-filter="bagunceiro">⚡ Bagunceiros</button>
-        <button class="filter-btn" data-filter="carinhoso">💖 Carinhosos</button>
-      </div>
+    <footer>
+        <p>Discografia Olivia Rodrigo • Hospedado no GitHub Pages</p>
+    </footer>
 
-      <div class="special-actions">
-        <button id="btn-sorteio" class="btn-magic">🔮 Carta do Dia</button>
-        <button id="btn-abrir-criador" class="btn-create">➕ Criar Carta</button>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="cards-grid" class="cards-grid">
-      <!-- As cartas serão inseridas aqui pelo JavaScript -->
-    </section>
-  </main>
-
-  <!-- Modal: Carta do Dia -->
-  <div id="modal-sorteio" class="modal hidden">
-    <div class="modal-content modal-lucky">
-      <button class="close-modal" data-close="modal-sorteio">✕</button>
-      <span class="lucky-tag">✨ Sua energia felina de hoje é...</span>
-      <div id="lucky-card-container"></div>
-      <p id="lucky-message" class="lucky-message"></p>
-    </div>
-  </div>
-
-  <!-- Modal: Criar Própria Carta -->
-  <div id="modal-criador" class="modal hidden">
-    <div class="modal-content">
-      <button class="close-modal" data-close="modal-criador">✕</button>
-      <h2>🐾 Criar Minha Carta</h2>
-      <p class="modal-desc">Adicione seu gatinho (ou um gato inventado) ao baralho!</p>
-
-      <form id="form-criar-carta" class="create-form">
-        <label>
-          Nome do Gato:
-          <input type="text" id="input-nome" placeholder="Ex: Mingau, Paçoca..." required maxlength="22" />
-        </label>
-
-        <label>
-          Título / Classe:
-          <input type="text" id="input-titulo" placeholder="Ex: O Fiscal de Sacola" required maxlength="28" />
-        </label>
-
-        <div class="row-inputs">
-          <label>
-            Personalidade:
-            <select id="input-categoria">
-              <option value="dorminhoco">💤 Dorminhoco</option>
-              <option value="bagunceiro">⚡ Bagunceiro</option>
-              <option value="carinhoso">💖 Carinhoso</option>
-            </select>
-          </label>
-
-          <label>
-            Raridade:
-            <select id="input-raridade">
-              <option value="Comum">Comum</option>
-              <option value="Raro">Raro</option>
-              <option value="Lendário">Lendário ✨</option>
-            </select>
-          </label>
-        </div>
-
-        <label>
-          Foto do Gato (opcional - se deixar vazio, pegamos uma foto fofa):
-          <input type="file" id="input-foto" accept="image/*" />
-        </label>
-
-        <label>
-          Curiosidade ou Mania:
-          <textarea id="input-curiosidade" rows="2" placeholder="Ex: Amassa pãozinho toda vez que vê um cobertor fofinho." required maxlength="140"></textarea>
-        </label>
-
-        <div class="sliders-group">
-          <label>Fome: <span id="val-fome">80</span>%
-            <input type="range" id="input-fome" min="10" max="100" value="80" />
-          </label>
-          <label>Preguiça: <span id="val-preguica">90</span>%
-            <input type="range" id="input-preguica" min="10" max="100" value="90" />
-          </label>
-          <label>Caos: <span id="val-caos">50</span>%
-            <input type="range" id="input-caos" min="10" max="100" value="50" />
-          </label>
-        </div>
-
-        <button type="submit" class="btn-submit">✨ Adicionar ao Baralho</button>
-      </form>
-    </div>
-  </div>
-
-  <footer class="footer">
-    Feito com 🐾 e carinho • Projeto CatDex
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

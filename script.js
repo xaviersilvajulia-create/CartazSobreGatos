@@ -1,304 +1,133 @@
-// Banco inicial de cartas com fotos reais de gatos
-const gatosIniciais = [
-  {
-    id: 1,
-    nome: "Mochi",
-    titulo: "O Amassador de Pãozinho",
-    categoria: "carinhoso",
-    raridade: "Raro",
-    foto: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80",
-    curiosidade: "Gatos amassam superfícies macias porque isso lembra o movimento que faziam quando filhotes para estimular o leite da mãe.",
-    dica: "Deixe uma mantinha de microfibra no sofá — ele vai adotar na hora!",
-    fome: 75,
-    preguica: 85,
-    caos: 25,
-    carinhos: 14
-  },
-  {
-    id: 2,
-    nome: "Pipoca",
-    titulo: "O Corredor das 3h da Manhã",
-    categoria: "bagunceiro",
-    raridade: "Comum",
-    foto: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80",
-    curiosidade: "Os famosos 'zoomies' noturnos acontecem porque gatos são crepusculares e acumulam energia se dormirem o dia todo.",
-    dica: "Brinque com varinhas por 15 minutos antes de dormir para gastar a bateria dele.",
-    fome: 90,
-    preguica: 30,
-    caos: 98,
-    carinhos: 9
-  },
-  {
-    id: 3,
-    nome: "Nuvem",
-    titulo: "Mestre da Soneca Solar",
-    categoria: "dorminhoco",
-    raridade: "Lendário",
-    foto: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=600&q=80",
-    curiosidade: "Gatos dormem entre 12 e 16 horas por dia e seguem os raios de sol pela casa para manter o corpo quentinho sem gastar energia.",
-    dica: "Uma rede de janela com ventosas é o presente definitivo para esse perfil.",
-    fome: 60,
-    preguica: 100,
-    caos: 15,
-    carinhos: 27
-  },
-  {
-    id: 4,
-    nome: "Oliver",
-    titulo: "O Inspetor de Caixas",
-    categoria: "bagunceiro",
-    raridade: "Raro",
-    foto: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80",
-    curiosidade: "Espaços apertados reduzem o estresse felino e dão sensação de segurança e esconderijo perfeito para emboscadas.",
-    dica: "Nunca jogue fora uma caixa de papelão antes de deixar ele testar por pelo menos 3 dias.",
-    fome: 80,
-    preguica: 65,
-    caos: 82,
-    carinhos: 19
-  },
-  {
-    id: 5,
-    nome: "Amora",
-    titulo: "A Ronronadora Profissional",
-    categoria: "carinhoso",
-    raridade: "Lendário",
-    foto: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=600&q=80",
-    curiosidade: "A frequência do ronronar (entre 25 e 150 Hz) ajuda a acalmar tanto o gato quanto os humanos por perto!",
-    dica: "Carinho suave atrás das orelhas e no queixo ativa o modo motorzinho instantaneamente.",
-    fome: 70,
-    preguica: 80,
-    caos: 20,
-    carinhos: 35
-  },
-  {
-    id: 6,
-    nome: "Biscoito",
-    titulo: "O Pãozinho Dorminhoco",
-    categoria: "dorminhoco",
-    raridade: "Comum",
-    foto: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=600&q=80",
-    curiosidade: "Quando o gato esconde as patinhas debaixo do corpo (posição 'pão de forma'), significa que ele está super relaxado e confortável.",
-    dica: "Não tente puxar as patinhas — aproveite apenas para admirar a simetria!",
-    fome: 85,
-    preguica: 95,
-    caos: 18,
-    carinhos: 22
-  }
+const albuns = [
+    {
+        btn: "💜 SOUR (2021)",
+        titulo: "SOUR",
+        sub: "1º Álbum de Estúdio • Geffen Records",
+        capa: "https://upload.wikimedia.org/wikipedia/en/b/b2/Olivia_Rodrigo_-_SOUR.png",
+        stats: [
+            ["Lançamento", "21 Mai 2021"],
+            ["Faixas", "11 músicas"],
+            ["Gênero", "Pop / Pop-Punk"],
+            ["Grammys", "3 Prêmios"]
+        ],
+        desc: "O fenômeno mundial de estreia de Olivia Rodrigo, misturando baladas ao piano com explosões de pop-punk anos 90.",
+        ytGeral: "https://www.youtube.com/results?search_query=Olivia+Rodrigo+SOUR+full+album",
+        faixas: [
+            ["brutal", "2:23", "Single"],
+            ["traitor", "3:49", "Single"],
+            ["drivers license", "4:02", "Hit #1"],
+            ["1 step forward, 3 steps back", "2:43"],
+            ["deja vu", "3:35", "Single"],
+            ["good 4 u", "2:58", "Hit #1"],
+            ["enough for you", "3:22"],
+            ["happier", "2:55"],
+            ["jealousy, jealousy", "2:53"],
+            ["favorite crime", "2:32"],
+            ["hope ur ok", "3:29"]
+        ]
+    },
+    {
+        btn: "🖤 GUTS (spilled)",
+        titulo: "GUTS (spilled)",
+        sub: "2º Álbum de Estúdio + Edição Deluxe",
+        capa: "https://upload.wikimedia.org/wikipedia/en/0/03/Olivia_Rodrigo_-_Guts.png",
+        stats: [
+            ["Lançamento", "08 Set 2023"],
+            ["Deluxe", "22 Mar 2024"],
+            ["Faixas", "17 músicas"],
+            ["Gênero", "Pop-Rock"]
+        ],
+        desc: "Mais barulhento e visceral. Inclui as 12 faixas originais mais as 5 faixas bônus da versão spilled.",
+        ytGeral: "https://www.youtube.com/results?search_query=Olivia+Rodrigo+GUTS+spilled+full+album",
+        faixas: [
+            ["all-american bitch", "2:45"],
+            ["bad idea right?", "3:04", "Single"],
+            ["vampire", "3:39", "Hit #1"],
+            ["lacy", "2:57"],
+            ["ballad of a homeschooled girl", "3:23"],
+            ["making the bed", "3:18"],
+            ["logical", "3:51"],
+            ["get him back!", "3:31", "Single"],
+            ["love is embarrassing", "2:34"],
+            ["the grudge", "3:09"],
+            ["pretty isn't pretty", "3:19"],
+            ["teenage dream", "3:42"],
+            ["obsessed", "2:50", "Deluxe"],
+            ["girl i've always been", "2:01", "Deluxe"],
+            ["scared of my guitar", "4:23", "Deluxe"],
+            ["stranger", "3:12", "Deluxe"],
+            ["so american", "2:49", "Deluxe"]
+        ]
+    },
+    {
+        btn: "🎭 HSMTMTS",
+        titulo: "HSMTMTS: As Músicas",
+        sub: "Trilhas Sonoras • Walt Disney Records",
+        capa: "https://upload.wikimedia.org/wikipedia/en/6/63/High_School_Musical_The_Musical_The_Series_Soundtrack.jpg",
+        stats: [
+            ["Período", "2020 – 2022"],
+            ["Personagem", "Nini"],
+            ["Temporadas", "1, 2 e 3"],
+            ["Gravadora", "Walt Disney"]
+        ],
+        desc: "Músicas gravadas e compostas por Olivia para a série High School Musical: The Musical: The Series.",
+        ytGeral: "https://www.youtube.com/results?search_query=Olivia+Rodrigo+High+School+Musical+songs",
+        faixas: [
+            ["All I Want", "2:57", "Solo"],
+            ["Just for a Moment", "3:17"],
+            ["Wondering", "3:44"],
+            ["Out of the Old", "2:48"],
+            ["The Rose Song", "2:54", "Solo"],
+            ["Granted", "2:34"],
+            ["You Never Know", "3:16"]
+        ]
+    },
+    {
+        btn: "🎬 Singles & Trilhas",
+        titulo: "Singles & Especiais",
+        sub: "Lançamentos fora dos álbuns principais",
+        capa: "https://upload.wikimedia.org/wikipedia/en/4/45/Olivia_Rodrigo_-_Can%27t_Catch_Me_Now.png",
+        stats: [
+            ["Destaque", "Jogos Vorazes"],
+            ["Formato", "Singles & Live"],
+            ["Shows", "Tiny Desk / Prom"],
+            ["Status", "Completos"]
+        ],
+        desc: "Trilhas de filmes, covers virais e apresentações acústicas ao vivo.",
+        ytGeral: "https://www.youtube.com/@OliviaRodrigo/releases",
+        faixas: [
+            ["Can't Catch Me Now", "3:25", "Jogos Vorazes"],
+            ["Stick Season (Cover)", "3:02", "BBC Live"],
+            ["NPR Tiny Desk Concert", "18:15", "Ao Vivo"],
+            ["SOUR Prom", "26:40", "Show"],
+            ["River (Joni Mitchell Cover)", "3:34"]
+        ]
+    }
 ];
 
-let baralho = [...gatosIniciais];
-let filtroAtual = "todos";
-
-const grid = document.getElementById("cards-grid");
-
-// Função que monta o HTML de uma carta
-function criarElementoCarta(gato) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "card-wrapper";
-  wrapper.dataset.id = gato.id;
-
-  wrapper.innerHTML = `
-    <div class="card-inner">
-      <!-- FRENTE -->
-      <div class="card-face card-front theme-${gato.categoria}">
-        <div class="card-header">
-          <span class="card-name">${gato.nome}</span>
-          <span class="rarity-badge rarity-${gato.raridade}">${gato.raridade}</span>
+function render(idx) {
+    const a = albuns[idx];
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+    document.getElementById('showcase').innerHTML = `
+        <div class="album-left">
+            <img class="album-cover" src="${a.capa}" alt="${a.titulo}">
+            <div class="album-stats">${a.stats.map(s => `<div>${s[0]}<span>${s[1]}</span></div>`).join('')}</div>
+            <a class="btn-yt" href="${a.ytGeral}" target="_blank">▶ Ouvir no YouTube</a>
         </div>
-
-        <div class="photo-frame">
-          <img src="${gato.foto}" alt="Foto de ${gato.nome}" loading="lazy" />
-        </div>
-
-        <div class="card-class">🐾 ${gato.titulo}</div>
-
-        <div class="stats-box">
-          <div class="stat-row">
-            <span class="stat-label">🍖 Fome</span>
-            <div class="stat-bar-bg">
-              <div class="stat-bar-fill" style="width: ${gato.fome}%; background: #ff8fab;"></div>
-            </div>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">💤 Preguiça</span>
-            <div class="stat-bar-bg">
-              <div class="stat-bar-fill" style="width: ${gato.preguica}%; background: #9d8df1;"></div>
-            </div>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">⚡ Caos</span>
-            <div class="stat-bar-bg">
-              <div class="stat-bar-fill" style="width: ${gato.caos}%; background: #f4a261;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- VERSO -->
-      <div class="card-face card-back theme-${gato.categoria}">
-        <div class="back-title">📖 Sobre ${gato.nome}</div>
-
-        <div class="back-section">
-          <strong>Você sabia?</strong>
-          <p>${gato.curiosidade}</p>
-        </div>
-
-        <div class="back-section">
-          <strong>💡 Dica Felina</strong>
-          <p>${gato.dica}</p>
-        </div>
-
-        <button class="btn-pet" type="button">
-          💖 Fazer Carinho (<span class="pet-count">${gato.carinhos}</span>)
-        </button>
-
-        <span class="flip-hint">Clique na carta para voltar ↻</span>
-      </div>
-    </div>
-  `;
-
-  // Evento de virar a carta ao clicar
-  wrapper.addEventListener("click", (e) => {
-    if (e.target.closest(".btn-pet")) return;
-    wrapper.classList.toggle("flipped");
-  });
-
-  // Evento do botão de carinho
-  const btnPet = wrapper.querySelector(".btn-pet");
-  const countSpan = wrapper.querySelector(".pet-count");
-
-  btnPet.addEventListener("click", (e) => {
-    e.stopPropagation();
-    gato.carinhos++;
-    countSpan.textContent = gato.carinhos;
-    soltarCoracoes(e.clientX, e.clientY);
-  });
-
-  return wrapper;
+        <div class="album-right">
+            <h2>${a.titulo}</h2>
+            <span class="subtitle">${a.sub}</span>
+            <p class="desc">${a.desc}</p>
+            <ul class="tracklist">
+                ${a.faixas.map((f, i) => `
+                    <li class="track">
+                        <div><span class="track-num">${String(i + 1).padStart(2, '0')}</span>${f[0]}${f[2] ? `<span class="badge">${f[2]}</span>` : ''}</div>
+                        <div><span style="color:#94a3b8;font-size:.85rem">${f[1]}</span>
+                        <a class="yt-link" href="https://www.youtube.com/results?search_query=Olivia+Rodrigo+${encodeURIComponent(f[0])}" target="_blank">▶ YouTube</a></div>
+                    </li>`).join('')}
+            </ul>
+        </div>`;
 }
 
-// Renderiza as cartas na tela conforme o filtro
-function renderizarCartas() {
-  grid.innerHTML = "";
-  const filtrados =
-    filtroAtual === "todos"
-      ? baralho
-      : baralho.filter((g) => g.categoria === filtroAtual);
-
-  filtrados.forEach((gato) => {
-    grid.appendChild(criarElementoCarta(gato));
-  });
-}
-
-// Animação de corações flutuantes
-function soltarCoracoes(x, y) {
-  const emojis = ["💖", "🐾", "💕", "✨"];
-  for (let i = 0; i < 4; i++) {
-    const heart = document.createElement("span");
-    heart.className = "floating-heart";
-    heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    heart.style.left = `${x + (Math.random() * 40 - 20)}px`;
-    heart.style.top = `${y - 10}px`;
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 1000);
-  }
-}
-
-// Filtros no topo
-document.querySelectorAll(".filter-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    filtroAtual = btn.dataset.filter;
-    renderizarCartas();
-  });
-});
-
-// Botão "Carta do Dia" (Sorteio)
-const modalSorteio = document.getElementById("modal-sorteio");
-const luckyContainer = document.getElementById("lucky-card-container");
-const luckyMessage = document.getElementById("lucky-message");
-
-const mensagensSorte = {
-  dorminhoco: "Hoje o universo pede descanso, cobertor quentinho e zero pressa!",
-  bagunceiro: "Dia perfeito para explorar coisas novas, ter ideias malucas e correr atrás dos seus objetivos!",
-  carinhoso: "Sua vibe hoje está pura doçura — ótimo momento para ficar perto de quem você gosta."
-};
-
-document.getElementById("btn-sorteio").addEventListener("click", () => {
-  const sorteado = baralho[Math.floor(Math.random() * baralho.length)];
-  luckyContainer.innerHTML = "";
-  luckyContainer.appendChild(criarElementoCarta(sorteado));
-  luckyMessage.textContent = mensagensSorte[sorteado.categoria];
-  modalSorteio.classList.remove("hidden");
-});
-
-// Modal Criador de Carta
-const modalCriador = document.getElementById("modal-criador");
-document.getElementById("btn-abrir-criador").addEventListener("click", () => {
-  modalCriador.classList.remove("hidden");
-});
-
-// Fechar modais
-document.querySelectorAll(".close-modal").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.getElementById(btn.dataset.close).classList.add("hidden");
-  });
-});
-
-// Atualizar valores dos sliders no formulário
-["fome", "preguica", "caos"].forEach((stat) => {
-  const input = document.getElementById(`input-${stat}`);
-  const label = document.getElementById(`val-${stat}`);
-  input.addEventListener("input", () => {
-    label.textContent = input.value;
-  });
-});
-
-// Criar nova carta pelo formulário
-document.getElementById("form-criar-carta").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nome = document.getElementById("input-nome").value.trim();
-  const titulo = document.getElementById("input-titulo").value.trim();
-  const categoria = document.getElementById("input-categoria").value;
-  const raridade = document.getElementById("input-raridade").value;
-  const curiosidade = document.getElementById("input-curiosidade").value.trim();
-  const fome = Number(document.getElementById("input-fome").value);
-  const preguica = Number(document.getElementById("input-preguica").value);
-  const caos = Number(document.getElementById("input-caos").value);
-  const fileInput = document.getElementById("input-foto");
-
-  let fotoUrl = `https://cataas.com/cat?${Date.now()}`; // Foto real aleatória caso não envie arquivo
-
-  if (fileInput.files && fileInput.files[0]) {
-    fotoUrl = await new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.readAsDataURL(fileInput.files[0]);
-    });
-  }
-
-  const novaCarta = {
-    id: Date.now(),
-    nome,
-    titulo,
-    categoria,
-    raridade,
-    foto: fotoUrl,
-    curiosidade,
-    dica: "Carta personalizada criada especialmente para este baralho!",
-    fome,
-    preguica,
-    caos,
-    carinhos: 1
-  };
-
-  baralho.unshift(novaCarta);
-  renderizarCartas();
-  e.target.reset();
-  modalCriador.classList.add("hidden");
-});
-
-// Inicializa o site
-renderizarCartas();
+document.getElementById('tabs').innerHTML = albuns.map((a, i) => `<button class="tab-btn" onclick="render(${i})">${a.btn}</button>`).join('');
+render(0);
