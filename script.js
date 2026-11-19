@@ -1,207 +1,425 @@
-const discografia = [
-    {
-        aba: "SOUR",
-        tipo: "Álbum de Estúdio",
-        titulo: "SOUR",
-        ano: "2021",
-        duracaoTotal: "34 min 46 s",
-        gravadora: "Geffen Records",
-        capa: "https://upload.wikimedia.org/wikipedia/en/b/b2/Olivia_Rodrigo_-_SOUR.png",
-        descricao: "Álbum de estreia vencedor de três prêmios Grammy, unindo baladas confessionais ao piano e guitarras pop-punk.",
-        faixas: [
-            { nome: "brutal", dur: "2:23", vid: "OGUy2UmRx3I" },
-            { nome: "traitor", dur: "3:49", vid: "CRrf3h9S4Qw" },
-            { nome: "drivers license", dur: "4:02", vid: "ZmDBbnmKpqQ" },
-            { nome: "1 step forward, 3 steps back", dur: "2:43", vid: "p06D7579a_4" },
-            { nome: "deja vu", dur: "3:35", vid: "cii6ruuycQA" },
-            { nome: "good 4 u", dur: "2:58", vid: "gNi_6U5Pm_o" },
-            { nome: "enough for you", dur: "3:22", vid: "983bBbJx0Mk" },
-            { nome: "happier", dur: "2:55", vid: "ZQFmRXgeR-s" },
-            { nome: "jealousy, jealousy", dur: "2:53", vid: "Z-9gQjUZMm0" },
-            { nome: "favorite crime", dur: "2:32", vid: "AyX_LL9nWSE" },
-            { nome: "hope ur ok", dur: "3:29", vid: "ZLl9WK3372s" }
-        ]
-    },
-    {
-        aba: "GUTS (spilled)",
-        tipo: "Álbum de Estúdio • Deluxe",
-        titulo: "GUTS (spilled)",
-        ano: "2023",
-        duracaoTotal: "52 min 21 s",
-        gravadora: "Geffen Records",
-        capa: "https://upload.wikimedia.org/wikipedia/en/0/03/Olivia_Rodrigo_-_Guts.png",
-        descricao: "Segundo álbum de estúdio em sua edição completa com cinco faixas bônus, explorando sonoridades de rock alternativo.",
-        faixas: [
-            { nome: "all-american bitch", dur: "2:45", vid: "k6M_R0t7E8o" },
-            { nome: "bad idea right?", dur: "3:04", vid: "Dj9qJsJfvjQ" },
-            { nome: "vampire", dur: "3:39", vid: "RlPNh_PBZb4" },
-            { nome: "lacy", dur: "2:57", vid: "33sM8eE8xI0" },
-            { nome: "ballad of a homeschooled girl", dur: "3:23", vid: "obsp6J_a5gE" },
-            { nome: "making the bed", dur: "3:18", vid: "a6q_rQ5k00Y" },
-            { nome: "logical", dur: "3:51", vid: "0C6a6hJ0g_w" },
-            { nome: "get him back!", dur: "3:31", vid: "ZsJ-BHohXRI" },
-            { nome: "love is embarrassing", dur: "2:34", vid: "7c85q_C86E4" },
-            { nome: "the grudge", dur: "3:09", vid: "9k7aB04t0kE" },
-            { nome: "pretty isn't pretty", dur: "3:19", vid: "51a_x_C5c2w" },
-            { nome: "teenage dream", dur: "3:42", vid: "W4r3u_C_E2w" },
-            { nome: "obsessed", dur: "2:50", vid: "QXcjPySjdJU" },
-            { nome: "girl i've always been", dur: "2:01", vid: "C4b211M4oY8" },
-            { nome: "scared of my guitar", dur: "4:23", vid: "V3O921O4f3g" },
-            { nome: "stranger", dur: "3:12", vid: "E4f212O4g4h" },
-            { nome: "so american", dur: "2:49", vid: "R5h323P5h5i" }
-        ]
-    },
-    {
-        aba: "HSMTMTS",
-        tipo: "Trilha Sonora Original",
-        titulo: "HSMTMTS",
-        ano: "2020 – 2022",
-        duracaoTotal: "21 min 40 s",
-        gravadora: "Walt Disney Records",
-        capa: "https://upload.wikimedia.org/wikipedia/en/6/63/High_School_Musical_The_Musical_The_Series_Soundtrack.jpg",
-        descricao: "Seleção de composições solo e duetos interpretados como Nini Salazar-Roberts na série original da Disney.",
-        faixas: [
-            { nome: "All I Want", dur: "2:57", vid: "u8tdT5bqWSs" },
-            { nome: "Just for a Moment", dur: "3:17", vid: "2n8vE0o3_H8" },
-            { nome: "Wondering", dur: "3:44", vid: "B82q5E3h6xI" },
-            { nome: "Out of the Old", dur: "2:48", vid: "G7l5oW0e_B8" },
-            { nome: "The Rose Song", dur: "2:54", vid: "n1_R9hL3t3o" },
-            { nome: "Granted", dur: "2:34", vid: "H8m2pW0f_C9" },
-            { nome: "You Never Know", dur: "3:16", vid: "J9n3qX1g_D0" }
-        ]
-    },
-    {
-        aba: "Singles",
-        tipo: "Lançamentos Avulsos & Ao Vivo",
-        titulo: "Singles & Especiais",
-        ano: "2021 – 2024",
-        duracaoTotal: "54 min 56 s",
-        gravadora: "Geffen / BBC / NPR",
-        capa: "https://upload.wikimedia.org/wikipedia/en/4/45/Olivia_Rodrigo_-_Can%27t_Catch_Me_Now.png",
-        descricao: "Trilhas sonoras para o cinema, sessões acústicas e apresentações especiais ao vivo.",
-        faixas: [
-            { nome: "Can't Catch Me Now", dur: "3:25", vid: "ecJ3k625y6M" },
-            { nome: "Stick Season (BBC Live)", dur: "3:02", vid: "184C6P8_G0Y" },
-            { nome: "NPR Tiny Desk Concert", dur: "18:15", vid: "14x5P22k_K8" },
-            { nome: "SOUR Prom (Concert Film)", dur: "26:40", vid: "9438f9191_Q" },
-            { nome: "River (Cover)", dur: "3:34", vid: "476g2740_A8" }
-        ]
+:root {
+    --bg-base: #0a0612;
+    --bg-surface: #130c21;
+    --bg-hover: rgba(192, 132, 252, 0.08);
+    --border-subtle: rgba(216, 180, 254, 0.14);
+    --purple-accent: #9333ea;
+    --lilac-primary: #c084fc;
+    --lilac-light: #f3e8ff;
+    --text-secondary: #a195b8;
+    --text-muted: #6e6285;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-base);
+    background-image: radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.18), transparent 65%);
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-wrapper {
+    width: 100%;
+    max-width: 980px;
+    background: rgba(19, 12, 33, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 36px 44px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho Centralizado */
+.top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+    gap: 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.brand .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--lilac-primary);
+    box-shadow: 0 0 12px var(--lilac-primary);
+}
+
+.brand h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--lilac-light);
+}
+
+/* Navegação em Abas Centralizadas */
+.album-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background: var(--bg-hover);
+}
+
+.tab-btn.active {
+    background: rgba(192, 132, 252, 0.16);
+    border-color: rgba(192, 132, 252, 0.35);
+    color: var(--lilac-light);
+    font-weight: 600;
+}
+
+/* Conteúdo Principal */
+.main-content {
+    padding: 36px 0 28px;
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    gap: 44px;
+    align-items: center;
+    animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Coluna Esquerda: Capa e Ficha Técnica */
+.cover-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    margin-bottom: 18px;
+}
+
+.cover-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.cover-frame:hover img {
+    transform: scale(1.03);
+}
+
+.album-meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.meta-row span:last-child {
+    color: var(--lilac-light);
+    font-weight: 500;
+}
+
+/* Coluna Direita: Título e Tracklist */
+.album-header {
+    margin-bottom: 24px;
+}
+
+.album-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--lilac-primary);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.album-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.album-header p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+/* Lista de Faixas */
+.tracklist-header {
+    display: grid;
+    grid-template-columns: 34px 1fr 65px 36px;
+    padding: 0 10px 8px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.tracklist {
+    list-style: none;
+    margin-top: 6px;
+    max-height: 310px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.tracklist::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tracklist::-webkit-scrollbar-thumb {
+    background: rgba(192, 132, 252, 0.25);
+    border-radius: 10px;
+}
+
+.track-row {
+    display: grid;
+    grid-template-columns: 34px 1fr 65px 36px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.track-row:hover {
+    background: var(--bg-hover);
+}
+
+.track-index {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.track-row:hover .track-index {
+    color: var(--lilac-primary);
+}
+
+.track-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+.track-row:hover .track-title {
+    color: var(--lilac-light);
+}
+
+.track-duration {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.fav-toggle {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.fav-toggle:hover,
+.fav-toggle.active {
+    color: var(--lilac-primary);
+}
+
+.fav-toggle:hover {
+    transform: scale(1.15);
+}
+
+/* Modal de Vídeo */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 3, 12, 0.85);
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.modal-backdrop.open {
+    display: flex;
+}
+
+.modal-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 720px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+}
+
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.modal-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--lilac-primary);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.modal-info h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--purple-accent);
+    color: #ffffff;
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-bottom {
+    padding: 14px 24px;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.external-link {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--lilac-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.external-link:hover {
+    color: #ffffff;
+}
+
+/* Rodapé */
+.footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Responsividade */
+@media (max-width: 820px) {
+    .app-wrapper {
+        padding: 28px 22px;
     }
-];
 
-let activeIndex = 0;
-let favorites = JSON.parse(localStorage.getItem("olivia_favs") || "[]");
-
-function renderNavigation() {
-    const tabsContainer = document.getElementById("tabs");
-    tabsContainer.innerHTML = discografia.map((item, idx) => `
-        <button class="tab-btn ${idx === activeIndex ? "active" : ""}" onclick="changeAlbum(${idx})">
-            ${item.aba}
-        </button>
-    `).join("");
-}
-
-function changeAlbum(idx) {
-    activeIndex = idx;
-    renderNavigation();
-    renderContent();
-}
-
-function renderContent() {
-    const album = discografia[activeIndex];
-    const showcase = document.getElementById("showcase");
-
-    showcase.style.animation = "none";
-    showcase.offsetHeight;
-    showcase.style.animation = null;
-
-    showcase.innerHTML = `
-        <aside class="album-sidebar">
-            <div class="cover-frame">
-                <img src="${album.capa}" alt="Capa do álbum ${album.titulo}">
-            </div>
-            <div class="album-meta-list">
-                <div class="meta-row"><span>Lançamento</span><span>${album.ano}</span></div>
-                <div class="meta-row"><span>Faixas</span><span>${album.faixas.length} músicas</span></div>
-                <div class="meta-row"><span>Duração</span><span>${album.duracaoTotal}</span></div>
-                <div class="meta-row"><span>Selo</span><span>${album.gravadora}</span></div>
-            </div>
-        </aside>
-
-        <section class="album-content">
-            <div class="album-header">
-                <span class="album-tag">${album.tipo}</span>
-                <h2>${album.titulo}</h2>
-                <p>${album.descricao}</p>
-            </div>
-
-            <div class="tracklist-header">
-                <span>#</span>
-                <span>Título</span>
-                <span style="text-align:right;padding-right:12px;">Duração</span>
-                <span></span>
-            </div>
-
-            <ul class="tracklist">
-                ${album.faixas.map((faixa, i) => {
-                    const isLiked = favorites.includes(faixa.nome);
-                    const safeName = faixa.nome.replace(/'/g, "\\'");
-                    return `
-                        <li class="track-row" onclick="openPlayer('${safeName}', '${faixa.vid}')" title="Clique para ouvir ${faixa.nome}">
-                            <span class="track-index">${String(i + 1).padStart(2, "0")}</span>
-                            <span class="track-title">${faixa.nome}</span>
-                            <span class="track-duration">${faixa.dur}</span>
-                            <button class="fav-toggle ${isLiked ? "active" : ""}" onclick="event.stopPropagation(); toggleFavorite('${safeName}')" aria-label="Favoritar">
-                                ${isLiked ? "♥" : "♡"}
-                            </button>
-                        </li>
-                    `;
-                }).join("")}
-            </ul>
-        </section>
-    `;
-}
-
-function toggleFavorite(songName) {
-    if (favorites.includes(songName)) {
-        favorites = favorites.filter(name => name !== songName);
-    } else {
-        favorites.push(songName);
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 0;
     }
-    localStorage.setItem("olivia_favs", JSON.stringify(favorites));
-    renderContent();
+
+    .album-sidebar {
+        max-width: 260px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .album-header {
+        text-align: center;
+    }
 }
-
-// Modal do Player
-const modal = document.getElementById("videoModal");
-const videoWrapper = document.getElementById("videoWrapper");
-
-function openPlayer(songName, videoId) {
-    const searchUrl = `https://www.youtube.com/results?search_query=Olivia+Rodrigo+${encodeURIComponent(songName)}`;
-    document.getElementById("modalTitle").textContent = songName;
-    document.getElementById("modalExternalLink").href = searchUrl;
-
-    videoWrapper.innerHTML = `
-        <iframe 
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
-            title="${songName}" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    `;
-    modal.classList.add("open");
-}
-
-function closePlayer() {
-    modal.classList.remove("open");
-    videoWrapper.innerHTML = "";
-}
-
-document.getElementById("closeModal").addEventListener("click", closePlayer);
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) closePlayer();
-});
-
-// Inicialização
-renderNavigation();
-renderContent();
