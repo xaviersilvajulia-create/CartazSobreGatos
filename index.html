@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLIVIA RODRIGO — Discografia & YouTube Hub</title>
+    <title>Olivia Rodrigo — Discografia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="sour">
+<body>
 
-    <header>
-        <div class="tag">★ DISCOGRAFIA COMPLETA ★</div>
-        <h1>Olivia Rodrigo</h1>
-        <p>Explore as eras, favorite suas faixas e assista aos clipes sem sair da página</p>
-    </header>
-
-    <!-- Abas de seleção de álbuns -->
-    <nav class="album-selector" id="tabs"></nav>
-
-    <!-- Vitrine principal do álbum selecionado -->
-    <main class="container">
-        <section class="showcase" id="showcase"></section>
-    </main>
-
-    <!-- Modal de Vídeo do YouTube -->
-    <div class="modal-overlay" id="videoModal" aria-hidden="true">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3 id="modalTitle">Tocando agora</h3>
-                <button class="modal-close" id="closeModal" title="Fechar">✕</button>
+    <div class="app-wrapper">
+        <header class="top-bar">
+            <div class="brand">
+                <span class="dot"></span>
+                <h1>Olivia Rodrigo</h1>
             </div>
-            <div class="video-wrapper" id="videoWrapper"></div>
-            <div class="modal-footer">
-                <span class="modal-hint">Não carregou? Alguns vídeos oficiais bloqueiam reprodução externa.</span>
-                <a id="modalExternalLink" href="#" target="_blank" rel="noopener" class="btn-yt-external">
-                    Abrir direto no YouTube ↗
+            <nav class="album-tabs" id="tabs" aria-label="Discografia"></nav>
+        </header>
+
+        <main class="main-content" id="showcase"></main>
+
+        <footer class="footer">
+            <span>Discografia Oficial • Arquivo de Fã</span>
+        </footer>
+    </div>
+
+    <!-- Modal de Reprodução Limpo -->
+    <div class="modal-backdrop" id="videoModal" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-top">
+                <div class="modal-info">
+                    <span class="modal-label">Reproduzindo</span>
+                    <h3 id="modalTitle">Nome da Música</h3>
+                </div>
+                <button class="icon-btn" id="closeModal" aria-label="Fechar">✕</button>
+            </div>
+            <div class="video-container" id="videoWrapper"></div>
+            <div class="modal-bottom">
+                <a id="modalExternalLink" href="#" target="_blank" rel="noopener" class="external-link">
+                    Assistir no YouTube ↗
                 </a>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>Discografia Olivia Rodrigo • Hospedado no GitHub Pages</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
