@@ -1,11 +1,47 @@
-:root {
-    --bg: #090314;
-    --purple: #7c3aed;
-    --lilac: #c4b5fd;
-    --pink: #f43f5e;
+/* Temas Dinâmicos por Era */
+:root,
+body[data-theme="sour"] {
+    --bg: #0c0617;
+    --primary: #9333ea;
+    --accent: #60a5fa;
+    --glow-1: rgba(168, 85, 247, 0.35);
+    --glow-2: rgba(96, 165, 250, 0.25);
+    --glass: rgba(30, 16, 58, 0.68);
+    --border: rgba(196, 181, 253, 0.3);
     --yt: #ff0033;
-    --glass: rgba(28, 12, 56, 0.7);
-    --border: rgba(196, 181, 253, 0.25);
+}
+
+body[data-theme="guts"] {
+    --bg: #09020d;
+    --primary: #7e22ce;
+    --accent: #f43f5e;
+    --glow-1: rgba(126, 34, 206, 0.38);
+    --glow-2: rgba(244, 63, 94, 0.28);
+    --glass: rgba(26, 9, 44, 0.72);
+    --border: rgba(244, 63, 94, 0.32);
+    --yt: #ff0033;
+}
+
+body[data-theme="hsmtmts"] {
+    --bg: #050a18;
+    --primary: #2563eb;
+    --accent: #ec4899;
+    --glow-1: rgba(37, 99, 235, 0.35);
+    --glow-2: rgba(236, 72, 153, 0.25);
+    --glass: rgba(15, 28, 62, 0.7);
+    --border: rgba(147, 197, 253, 0.3);
+    --yt: #ff0033;
+}
+
+body[data-theme="singles"] {
+    --bg: #120904;
+    --primary: #d97706;
+    --accent: #ef4444;
+    --glow-1: rgba(217, 119, 6, 0.35);
+    --glow-2: rgba(239, 68, 68, 0.25);
+    --glass: rgba(42, 20, 10, 0.7);
+    --border: rgba(252, 211, 77, 0.3);
+    --yt: #ff0033;
 }
 
 * {
@@ -15,11 +51,15 @@
 }
 
 body {
-    background: var(--bg) radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.3), transparent 45%);
+    background-color: var(--bg);
+    background-image: 
+        radial-gradient(circle at 15% 15%, var(--glow-1), transparent 45%),
+        radial-gradient(circle at 85% 85%, var(--glow-2), transparent 45%);
     color: #fff;
     font-family: 'Plus Jakarta Sans', sans-serif;
     min-height: 100vh;
     padding-bottom: 50px;
+    transition: background-color 0.5s ease;
 }
 
 header {
@@ -29,21 +69,23 @@ header {
 
 .tag {
     font-family: 'Permanent Marker', cursive;
-    background: var(--pink);
-    padding: 5px 15px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 16px;
     border-radius: 6px;
     font-size: 0.9rem;
     display: inline-block;
     transform: rotate(-3deg);
     margin-bottom: 12px;
     box-shadow: 3px 3px 0 #000;
+    transition: background 0.4s ease;
 }
 
 header h1 {
     font-family: 'Syne', sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     text-transform: uppercase;
-    background: linear-gradient(180deg, #fff, var(--lilac));
+    background: linear-gradient(180deg, #fff 30%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -51,8 +93,10 @@ header h1 {
 header p {
     color: #cbd5e1;
     margin-top: 8px;
+    font-size: 1rem;
 }
 
+/* Abas de Navegação */
 .album-selector {
     display: flex;
     justify-content: center;
@@ -64,30 +108,32 @@ header p {
 
 .tab-btn {
     background: var(--glass);
+    backdrop-filter: blur(10px);
     border: 2px solid var(--border);
     color: #e2e8f0;
     padding: 12px 24px;
     border-radius: 50px;
     font-family: 'Syne', sans-serif;
-    font-size: 1rem;
+    font-size: 0.98rem;
     cursor: pointer;
-    transition: 0.25s;
+    transition: all 0.25s ease;
 }
 
 .tab-btn:hover {
-    border-color: var(--lilac);
+    border-color: #fff;
     transform: translateY(-2px);
 }
 
 .tab-btn.active {
-    background: var(--purple);
+    background: var(--primary);
     border-color: #fff;
     color: #fff;
-    box-shadow: 0 0 25px rgba(124, 58, 237, 0.75);
+    box-shadow: 0 0 25px var(--glow-1);
 }
 
+/* Container Principal */
 .container {
-    max-width: 1100px;
+    max-width: 1120px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -95,29 +141,78 @@ header p {
 .showcase {
     background: var(--glass);
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border);
     border-radius: 24px;
     padding: 35px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 40px;
+    grid-template-columns: 330px 1fr;
+    gap: 45px;
     align-items: start;
+    transition: border-color 0.4s ease, background 0.4s ease;
 }
 
+/* Coluna Esquerda & Efeito de Disco de Vinil */
 .album-left {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-.album-cover {
+.cover-vinyl-wrap {
+    position: relative;
     width: 100%;
+    max-width: 280px;
     aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.album-cover {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
     border-radius: 16px;
     object-fit: cover;
     border: 2px solid var(--border);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65);
+    transition: transform 0.4s ease;
+}
+
+.vinyl-disc {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    width: 92%;
+    height: 92%;
+    border-radius: 50%;
+    z-index: 1;
+    background: 
+        radial-gradient(circle, var(--accent) 0%, var(--accent) 18%, #111 19%, #1c1c1c 35%, #0d0d0d 36%, #1f1f1f 55%, #0a0a0a 56%, #181818 100%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vinyl-disc::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: var(--bg);
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.cover-vinyl-wrap:hover .vinyl-disc {
+    transform: translateX(32%) rotate(180deg);
+}
+
+.cover-vinyl-wrap:hover .album-cover {
+    transform: translateX(-6%);
 }
 
 .album-stats {
@@ -132,7 +227,7 @@ header p {
 
 .album-stats span {
     display: block;
-    color: var(--lilac);
+    color: var(--accent);
     font-weight: 800;
     font-size: 0.95rem;
 }
@@ -140,6 +235,8 @@ header p {
 .btn-yt {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 8px;
     background: var(--yt);
     color: #fff;
     text-decoration: none;
@@ -155,32 +252,87 @@ header p {
     filter: brightness(1.1);
 }
 
+/* Coluna Direita: Info, Busca e Filtros */
 .album-right h2 {
     font-family: 'Syne', sans-serif;
     font-size: 2.5rem;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .subtitle {
-    color: var(--pink);
+    color: var(--accent);
     font-weight: 700;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     display: block;
 }
 
 .desc {
     color: #cbd5e1;
-    margin-bottom: 24px;
-    font-size: 0.96rem;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
     line-height: 1.5;
 }
 
+/* Controles de Busca e Filtro */
+.controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--accent);
+}
+
+.filter-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    color: #cbd5e1;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Lista de Músicas */
 .tracklist {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 410px;
+    max-height: 390px;
     overflow-y: auto;
     padding-right: 6px;
 }
@@ -190,7 +342,7 @@ header p {
 }
 
 .tracklist::-webkit-scrollbar-thumb {
-    background: var(--purple);
+    background: var(--primary);
     border-radius: 10px;
 }
 
@@ -206,42 +358,179 @@ header p {
 }
 
 .track:hover {
-    background: rgba(124, 58, 237, 0.35);
+    background: rgba(255, 255, 255, 0.11);
     transform: translateX(4px);
 }
 
+.track-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 .track-num {
-    color: var(--pink);
+    color: var(--accent);
     font-weight: 800;
-    margin-right: 8px;
+    width: 22px;
 }
 
 .badge {
     font-size: 0.68rem;
-    background: var(--purple);
+    background: var(--primary);
     padding: 2px 8px;
     border-radius: 20px;
-    margin-left: 6px;
     text-transform: uppercase;
     font-weight: 700;
 }
 
-.yt-link {
+.track-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.fav-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #64748b;
+    transition: transform 0.2s, color 0.2s;
+    line-height: 1;
+}
+
+.fav-btn:hover {
+    transform: scale(1.2);
+}
+
+.fav-btn.liked {
+    color: #f43f5e;
+}
+
+.yt-btn {
     background: rgba(255, 0, 51, 0.18);
-    border: 1px solid rgba(255, 0, 51, 0.5);
+    border: 1px solid rgba(255, 0, 51, 0.55);
     color: #fff;
-    text-decoration: none;
+    font-family: inherit;
     font-size: 0.78rem;
     font-weight: 700;
     padding: 5px 12px;
     border-radius: 20px;
-    margin-left: 10px;
+    cursor: pointer;
     transition: 0.2s;
 }
 
-.yt-link:hover {
+.yt-btn:hover {
     background: var(--yt);
     border-color: var(--yt);
+}
+
+.empty-msg {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+}
+
+/* Modal de Vídeo */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 20px;
+}
+
+.modal-overlay.open {
+    display: flex;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-box {
+    background: #140a26;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 760px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: var(--yt);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 22px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.modal-hint {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.btn-yt-external {
+    background: var(--yt);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 20px;
 }
 
 footer {
@@ -254,9 +543,9 @@ footer {
 @media (max-width: 850px) {
     .showcase {
         grid-template-columns: 1fr;
+        padding: 24px;
     }
-    .album-cover {
-        max-width: 280px;
-        margin: 0 auto;
+    .cover-vinyl-wrap:hover .vinyl-disc {
+        transform: translateX(18%) rotate(180deg);
     }
 }
